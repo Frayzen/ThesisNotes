@@ -1,0 +1,136 @@
+{
+  "baseUrl": "http://server:7000",
+  "authMode": "token",
+  "apiToken": "ody_3d3pMWMBBNeV-AHctLjj_O-SrRFtBOxs5lm9Fo1yvGo",
+  "username": "",
+  "password": "",
+  "sessionCookie": "",
+  "defaultModel": "",
+  "defaultEndpointUrl": "",
+  "defaultEndpointId": "",
+  "useStreaming": false,
+  "mode": "chat",
+  "useRag": false,
+  "useWebSearch": false,
+  "allowBash": false,
+  "defaultTargetLanguage": "Spanish",
+  "reuseLatestSession": true,
+  "hideReasoning": true,
+  "voiceInput": true,
+  "sttAutoSend": false,
+  "sttPauseMs": 1500,
+  "ttsReadAloud": true,
+  "ttsAutoPlay": false,
+  "agentProfiles": [
+    {
+      "id": "obsidian-agent",
+      "name": "Obsidian Agent",
+      "systemPrompt": "You are operating on the user's Obsidian vault through vault tools. write_note creates or overwrites a markdown file; append_note adds to one; create_folder makes folders; read_note/search_vault/list_files discover content. For ANY request about the user's notes, documents, files, or folders, use these vault tools. Never use bash or shell for vault content — that is the server's filesystem, not the vault. manage_notes is NOT the vault (it is Odysseus's internal notes app); do not use it for vault files. Vault paths are vault-relative (e.g. 'Folder/Note.md'). Prefer acting over asking when the request is clear.",
+      "tools": [
+        "search_vault",
+        "read_note",
+        "list_files",
+        "list_folders",
+        "get_metadata",
+        "get_backlinks",
+        "notes_by_tag",
+        "recent_notes",
+        "get_active_note",
+        "write_note",
+        "append_note",
+        "insert_under_heading",
+        "replace_in_note",
+        "set_frontmatter",
+        "add_tag",
+        "create_folder",
+        "move_note",
+        "append_to_daily_note",
+        "open_note",
+        "list_commands",
+        "run_command"
+      ],
+      "alwaysOnTools": [
+        "manage_memory",
+        "ask_user",
+        "update_plan"
+      ],
+      "memoryMode": "auto",
+      "skillsMode": "auto"
+    }
+  ],
+  "activeAgentProfileId": "",
+  "autoDeleteOneshotSessions": true,
+  "previewBeforeReplace": true,
+  "presets": [
+    {
+      "id": "default",
+      "name": "Default",
+      "prompt": ""
+    },
+    {
+      "id": "writing",
+      "name": "Writing assistant",
+      "prompt": "You are helping edit prose. Keep voice and tone consistent. Don't add commentary; produce edits directly."
+    },
+    {
+      "id": "research",
+      "name": "Research notes",
+      "prompt": "You are helping with research notes. Be concise, cite the note paths you draw from, and prefer bullet points over paragraphs."
+    },
+    {
+      "id": "code",
+      "name": "Code & technical",
+      "prompt": "You are helping with technical notes and code. Show code in fenced blocks with language. Be precise; avoid hedging."
+    },
+    {
+      "id": "vault-editor",
+      "name": "Vault Editor",
+      "prompt": "You are Vault Editor, an Obsidian-aware writing assistant.\nWhen the user asks you to create or modify files in their vault, format every file as a fenced code block whose info string contains the target vault path.\n\nUse this exact format for markdown files:\n\n```markdown:path/to/note.md\n<full file content>\n```\n\nOr for non-markdown files:\n\n```python:src/script.py\n<full file content>\n```\n\nRules:\n- The path is relative to the vault root. No leading slash, no \"..\", no absolute paths, no drive letters.\n- Output the FULL desired file content inside the block — the user's review tool replaces the whole file, not diffs.\n- For new files, pick a reasonable path inside an existing or sensible folder.\n- When updating a file the user already shared with you, preserve its structure and only change what's needed.\n- If you propose multiple files in one reply, give each its own fenced block.\n- Outside the file blocks, keep prose minimal — a one-line note about what changed is fine; long explanations get in the way of review.\n- Never invent paths the user hasn't established context for. If a path is ambiguous, ask.\n- Do not include diff markers (+/-) or speculative TODO comments inside file blocks."
+    }
+  ],
+  "activePresetId": "default",
+  "lastSessionId": "",
+  "activeWorkspaceFolder": "/home/frayzen/Thesis",
+  "recentWorkspaces": [],
+  "maxContextCharsPerFile": 32000,
+  "attachmentMaxMB": 25,
+  "promptCompactAt90": true,
+  "inlineMentionedNoteContent": false,
+  "webSearchSticky": true,
+  "chatTheme": "obsidian",
+  "chatThemeScope": "panel",
+  "mcpEnabled": false,
+  "mcpPort": 7077,
+  "mcpAllowWrites": false,
+  "mcpAllowDangerous": false,
+  "mcpDisabledTools": [],
+  "mcpToken": "",
+  "biasVaultTools": true,
+  "sessionControls": {},
+  "promptTemplates": [
+    {
+      "id": "tpl-roleplay-character",
+      "name": "Roleplay character",
+      "description": "Pick a character sheet note; the model speaks only as that character.",
+      "body": "You are the character described in the following sheet. Stay in character at all times.\nMatch their voice, knowledge, speech patterns, beliefs, and emotional baseline.\nDo not narrate or break the fourth wall. Do not refer to yourself as an AI.\nIf the user asks something the character would not know, react the way the character would react to being asked it.\n\n### Character sheet\n\n{?note}\n\n### The user's message\n\n{}"
+    },
+    {
+      "id": "tpl-polish-selection",
+      "name": "Polish selection",
+      "description": "Polish prose without changing voice. Operates on the current editor selection.",
+      "body": "Polish the writing below: improve clarity, grammar, and flow. Keep voice and meaning unchanged. Output only the polished text.\n\n---\n\n{}"
+    },
+    {
+      "id": "tpl-meeting-followup",
+      "name": "Meeting follow-up",
+      "description": "Draft a follow-up email from the active note.",
+      "body": "Read the meeting notes below and draft a follow-up email summarizing:\n- Decisions made\n- Action items with owners\n- Open questions\n\n### Meeting notes\n\n{activeNote}"
+    },
+    {
+      "id": "tpl-compare-template",
+      "name": "Compare against template",
+      "description": "Pick a template note to compare the active note against.",
+      "body": "Compare these two project briefs and list discrepancies:\n\n## My version\n{activeNote}\n\n## Reference template\n{?note}"
+    }
+  ]
+}

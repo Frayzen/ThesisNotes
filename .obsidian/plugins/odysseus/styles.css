@@ -1,0 +1,1148 @@
+/* ---------- Odysseus chat view ---------- */
+
+.odysseus-chat-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+  gap: 10px;
+  font-size: var(--font-ui-small);
+}
+
+/* When an Odysseus theme is applied, paint the whole panel with its palette. */
+.odysseus-chat-view.odysseus-themed {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+}
+
+/* Toolbar — compact pill controls */
+.odysseus-chat-toolbar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.odysseus-chat-view > .odysseus-chat-toolbar:first-of-type {
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.odysseus-collapsible {
+  overflow: hidden;
+  transition: max-height 200ms ease, opacity 200ms ease, padding 200ms ease;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.odysseus-collapsible.is-collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  border-bottom: none;
+  pointer-events: none;
+}
+
+.odysseus-collapse-btn {
+  margin-left: auto;
+  width: 28px;
+  text-align: center;
+}
+
+.odysseus-context-btn {
+  min-width: 32px;
+  padding: 0 10px;
+}
+
+.odysseus-context-btn.is-active,
+.odysseus-workspace-btn.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 16%, var(--background-secondary));
+  border-color: var(--interactive-accent);
+  color: var(--text-normal);
+}
+
+.odysseus-workspace-btn {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Workspace browser modal ---------- */
+.odysseus-workspace-modal .modal-content { max-width: 720px; }
+
+.odysseus-ws-inputrow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.odysseus-ws-inputrow input {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
+}
+
+.odysseus-ws-breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  background: var(--background-secondary);
+  font-size: 0.85em;
+}
+
+.odysseus-ws-status {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  font-style: italic;
+  min-height: 1em;
+  margin-bottom: 6px;
+}
+
+.odysseus-ws-list {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  max-height: 50vh;
+  overflow-y: auto;
+  background: var(--background-primary);
+}
+
+.odysseus-ws-row {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--background-modifier-border);
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+}
+.odysseus-ws-row:last-child { border-bottom: none; }
+.odysseus-ws-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.odysseus-chat-toolbar select,
+.odysseus-chat-toolbar button {
+  height: 26px;
+  padding: 0 28px 0 10px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+  box-shadow: none;
+  cursor: pointer;
+  /* Override native OS dropdown chrome so the select obeys the Obsidian theme. */
+  -webkit-appearance: none;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    right 12px center,
+    right 8px center;
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+  color: var(--text-normal);
+}
+
+.odysseus-chat-toolbar button {
+  background-image: none;
+  padding: 0 12px;
+}
+
+.odysseus-chat-toolbar select option {
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+}
+
+.odysseus-chat-toolbar select:hover,
+.odysseus-chat-toolbar button:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Workspace / Profile picker buttons (in the ⌃ menu): icon + label, no accent. */
+.odysseus-chat-toolbar .odysseus-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.odysseus-chat-toolbar .odysseus-chip .odysseus-chip-icon {
+  display: inline-flex;
+  align-items: center;
+}
+.odysseus-chat-toolbar .odysseus-chip .odysseus-chip-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Icon-only toolbar buttons (refresh, collapse). */
+.odysseus-chat-toolbar .odysseus-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+.odysseus-chat-toolbar .odysseus-icon-only svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Subtle indicator chips above the input — show the active workspace / profile.
+   Muted by design (no accent) so they inform without shouting. */
+.odysseus-chat-indicators {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0 2px 4px;
+}
+.odysseus-chat-indicators:empty {
+  display: none;
+}
+.odysseus-indicator-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 200px;
+  height: 20px;
+  padding: 0 8px;
+  font-size: 0.72em;
+  line-height: 1;
+  border-radius: 10px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: none;
+}
+.odysseus-indicator-chip:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+.odysseus-indicator-chip svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+.odysseus-indicator-chip .chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Settings page collapsible sections. */
+.odysseus-settings-section {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  margin: 8px 0;
+  background: var(--background-secondary);
+}
+.odysseus-settings-summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 1.0em;
+  list-style: none;
+  user-select: none;
+  border-radius: 8px;
+}
+.odysseus-settings-summary::-webkit-details-marker { display: none; }
+.odysseus-settings-summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 8px;
+  opacity: 0.6;
+  transition: transform 0.12s ease;
+}
+.odysseus-settings-section[open] > .odysseus-settings-summary::before {
+  transform: rotate(90deg);
+}
+.odysseus-settings-summary:hover {
+  background: var(--background-modifier-hover);
+}
+.odysseus-settings-section-body {
+  padding: 4px 14px 12px;
+}
+/* h3s inside a section act as sub-headers; tighten the first one's top gap. */
+.odysseus-settings-section-body > h3:first-child {
+  margin-top: 6px;
+}
+
+.odysseus-chat-toolbar select {
+  max-width: 220px;
+}
+
+.odysseus-chat-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  height: 26px;
+  border-radius: 20px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  font-size: 0.8em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.odysseus-chat-toolbar input[type="checkbox"] {
+  margin: 0;
+}
+
+/* Attachment chips */
+.odysseus-attachments-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.odysseus-attachments-bar:empty {
+  display: none;
+}
+
+.odysseus-attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px 3px 4px;
+  border-radius: 20px;
+  background: var(--background-modifier-hover);
+  font-size: 0.78em;
+}
+
+.odysseus-attachment-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--background-secondary);
+}
+
+.odysseus-attachment-label {
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.odysseus-attachment-chip button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1;
+  padding: 0;
+  color: var(--text-muted);
+}
+
+.odysseus-attachment-chip button:hover { color: var(--text-error); }
+
+/* Status line */
+.odysseus-chat-statusrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 1.1em;
+}
+
+.odysseus-chat-status {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  font-style: italic;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.odysseus-chat-context {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.odysseus-chat-context:empty { display: none; }
+
+.odysseus-chat-timing {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+.odysseus-chat-timing:empty { display: none; }
+
+.odysseus-chat-timing.odysseus-timing-warn {
+  color: var(--color-orange, #d68a00);
+  border-color: var(--color-orange, #d68a00);
+  background: color-mix(in srgb, var(--color-orange, #d68a00) 12%, var(--background-secondary));
+}
+
+.odysseus-chat-context.odysseus-context-warn {
+  color: var(--color-orange, #d68a00);
+  border-color: var(--color-orange, #d68a00);
+  background: color-mix(in srgb, var(--color-orange, #d68a00) 12%, var(--background-secondary));
+}
+
+.odysseus-chat-context.odysseus-context-danger {
+  color: var(--text-error);
+  border-color: var(--background-modifier-error);
+  background: color-mix(in srgb, var(--background-modifier-error) 20%, var(--background-secondary));
+  font-weight: 600;
+}
+
+/* Message list */
+.odysseus-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+.odysseus-chat-messages,
+.odysseus-chat-messages * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Message bubbles — Odysseus-style asymmetric pills */
+.odysseus-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 88%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  word-wrap: break-word;
+  white-space: normal;
+  position: relative;
+}
+
+.odysseus-msg-user {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  /* Subtle accent "shade" rather than a solid fill — distinguishes the user
+     turn without shouting. Text stays normal foreground for easy reading. */
+  background: color-mix(in srgb, var(--interactive-accent) 12%, var(--background-secondary));
+  border: 1px solid var(--interactive-accent);
+  color: var(--text-normal);
+}
+.odysseus-msg-user .odysseus-msg-body {
+  color: var(--text-normal);
+}
+
+.odysseus-msg-assistant {
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  background: var(--background-primary);
+}
+
+.odysseus-msg-system {
+  align-self: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8em;
+  font-style: italic;
+  padding: 4px 8px;
+  max-width: 100%;
+}
+
+/* Hide the role label — bubble side + color carry the meaning. */
+.odysseus-msg-role { display: none; }
+
+.odysseus-msg-body {
+  white-space: normal;
+  line-height: 1.45;
+}
+
+.odysseus-msg-user .odysseus-msg-body,
+.odysseus-msg-system .odysseus-msg-body { white-space: pre-wrap; }
+
+.odysseus-msg-body p:first-child { margin-top: 0; }
+.odysseus-msg-body p:last-child { margin-bottom: 0; }
+
+.odysseus-msg-body pre {
+  overflow-x: auto;
+  padding: 8px 10px;
+  background: var(--background-secondary-alt, var(--background-secondary));
+  border-radius: 6px;
+  font-size: 0.85em;
+}
+
+.odysseus-msg-body code {
+  font-size: 0.85em;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--background-modifier-hover);
+}
+
+.odysseus-msg-body pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.odysseus-msg-body blockquote {
+  margin: 6px 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+/* "Constricting block" working indicator (matches Odysseus) */
+.odysseus-working-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 0;
+}
+.odysseus-working-block {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border-radius: 4px;
+  border: 2px solid var(--interactive-accent);
+  animation: odysseus-block-outer 1.4s ease-in-out infinite;
+}
+.odysseus-working-core {
+  position: absolute;
+  inset: 3px;
+  border-radius: 2px;
+  background: var(--interactive-accent);
+  animation: odysseus-block-core 1.4s ease-in-out infinite;
+}
+@keyframes odysseus-block-outer {
+  0%, 100% { transform: scale(1) rotate(0deg); border-radius: 4px; }
+  50%      { transform: scale(0.6) rotate(45deg); border-radius: 50%; }
+}
+@keyframes odysseus-block-core {
+  0%, 100% { transform: scale(0.4); opacity: 0.4; }
+  50%      { transform: scale(1); opacity: 1; }
+}
+.odysseus-working-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  animation: odysseus-pulse 1.4s ease-in-out infinite;
+}
+@keyframes odysseus-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Optional Fira Code in the chat panel to match Odysseus's typography */
+.odysseus-chat-view.odysseus-firacode .odysseus-msg-body,
+.odysseus-chat-view.odysseus-firacode .odysseus-chat-input {
+  font-family: "Fira Code", var(--font-monospace), monospace;
+}
+
+/* Mode badge on assistant replies */
+.odysseus-mode-badge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.72em;
+}
+
+.odysseus-mode-badge-main {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+.odysseus-mode-badge-web { color: var(--text-accent); }
+
+.odysseus-mode-badge-warn {
+  color: var(--text-error);
+  cursor: help;
+}
+
+/* Compact horizontal message footer (mode / thinking / memory / sources) */
+.odysseus-msg-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+/* All footer buttons: just an icon (+ count), no border, no background.
+   Hover only brightens the icon. Blanket reset kills Obsidian's default
+   button chrome (grey fill / shadow). */
+.odysseus-msg-footer button {
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  display: inline-flex;
+  align-items: center;
+}
+.odysseus-msg-footer button:hover { background: transparent; box-shadow: none; }
+
+.odysseus-footer-chip { gap: 3px; color: var(--text-muted); }
+.odysseus-footer-chip:hover { color: var(--text-normal); }
+.odysseus-footer-chip.is-open { color: var(--interactive-accent); }
+.odysseus-footer-warn { color: var(--text-error); cursor: help; }
+
+.odysseus-footer-action { color: var(--text-faint); }
+.odysseus-footer-action:hover { color: var(--text-normal); }
+
+.odysseus-footer-spacer { flex: 1; min-width: 8px; }
+
+.odysseus-footer-icon { display: inline-flex; }
+.odysseus-footer-icon svg { width: 14px; height: 14px; }
+.odysseus-footer-count { font-size: 0.72em; font-variant-numeric: tabular-nums; }
+
+.odysseus-msg-footer-bodies:empty { display: none; }
+.odysseus-footer-body {
+  margin-top: 4px;
+  font-size: 0.82em;
+}
+.odysseus-thinking-body {
+  padding: 8px 10px;
+  border-left: 2px solid var(--background-modifier-border);
+  white-space: pre-wrap;
+  color: var(--text-muted);
+  font-style: italic;
+  max-height: 280px;
+  overflow-y: auto;
+}
+.odysseus-memories-list { margin: 2px 0; padding-left: 20px; }
+.odysseus-memories-list li { margin-bottom: 2px; }
+.odysseus-memory-cat { color: var(--text-faint); font-size: 0.85em; }
+
+/* Web sources block */
+.odysseus-sources {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  font-size: 0.85em;
+}
+
+.odysseus-sources summary {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: var(--text-muted);
+  list-style: none;
+}
+
+.odysseus-sources summary::-webkit-details-marker { display: none; }
+
+.odysseus-sources[open] summary {
+  margin-bottom: 6px;
+  color: var(--text-normal);
+}
+
+.odysseus-sources-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.odysseus-sources-list li {
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.odysseus-sources-list a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.odysseus-sources-list a:hover { text-decoration: underline; }
+
+.odysseus-sources-url {
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+/* Slash autocomplete in chat input */
+.odysseus-chat-input-row { position: relative; }
+
+.odysseus-slash-popup {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 6px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.odysseus-slash-row {
+  padding: 6px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.odysseus-slash-row:last-child { border-bottom: none; }
+.odysseus-slash-row.is-active,
+.odysseus-slash-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.odysseus-slash-label {
+  font-weight: 600;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  color: var(--text-accent);
+}
+
+.odysseus-slash-sub {
+  font-size: 0.78em;
+  color: var(--text-muted);
+}
+
+/* File action buttons */
+.odysseus-file-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.odysseus-file-action-btn {
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--interactive-accent) 14%, var(--background-secondary));
+  border: 1px solid var(--interactive-accent);
+  color: var(--text-normal);
+  font-size: 0.78em;
+  cursor: pointer;
+  font-family: var(--font-monospace);
+}
+
+.odysseus-file-action-btn:hover {
+  background: color-mix(in srgb, var(--interactive-accent) 28%, var(--background-secondary));
+}
+
+/* Hover-revealed action row on assistant bubbles */
+.odysseus-msg-actions {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.odysseus-msg:hover .odysseus-msg-actions { opacity: 0.95; }
+
+.odysseus-msg-action {
+  font-size: 0.7em;
+  padding: 2px 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.odysseus-msg-action:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* Bottom action row (Retry / Fork / Delete) — flows below content, not absolute */
+.odysseus-msg-actions-bottom {
+  position: static;
+  opacity: 0;
+  margin-top: 6px;
+  gap: 6px;
+}
+.odysseus-msg:hover .odysseus-msg-actions-bottom { opacity: 0.85; }
+
+/* Input row — sticky bottom, with rounded textarea */
+.odysseus-chat-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  padding-top: 6px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.odysseus-chat-input {
+  flex: 1;
+  min-height: 56px;
+  max-height: 240px;
+  padding: 10px 12px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9em;
+  border-radius: 14px;
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-modifier-form-field);
+  color: var(--text-normal);
+  box-shadow: none;
+}
+
+.odysseus-chat-input:focus,
+.odysseus-chat-input:active {
+  outline: none;
+  border-color: var(--interactive-accent);
+  background-color: var(--background-modifier-form-field);
+  box-shadow: none;
+}
+
+.odysseus-send-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: stretch;
+  justify-content: flex-end;
+}
+
+.odysseus-toggles-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+/* Monochrome icon toggles (mode, web): bare icon, no bg when idle, accent
+   tint when active. */
+.odysseus-icon-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.odysseus-icon-toggle svg { width: 16px; height: 16px; }
+.odysseus-icon-toggle:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+.odysseus-icon-toggle.is-active {
+  color: var(--interactive-accent);
+  background: color-mix(in srgb, var(--interactive-accent) 16%, transparent);
+}
+
+.odysseus-chat-send {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.odysseus-chat-send:hover { background-color: var(--interactive-accent-hover); }
+
+.odysseus-chat-send.mod-warning {
+  background: var(--background-modifier-error);
+  color: var(--text-on-accent);
+}
+
+/* Dedicated mic button — red + pulsing while recording. */
+.odysseus-mic-btn.is-recording {
+  color: var(--text-on-accent);
+  background: var(--background-modifier-error);
+  border-radius: 6px;
+  animation: odysseus-rec-pulse 1.5s ease-in-out infinite;
+}
+@keyframes odysseus-rec-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Read-aloud footer button: accent while playing, muted (spinning) while loading. */
+.odysseus-tts-action.is-playing { color: var(--interactive-accent); }
+.odysseus-tts-action.is-loading { color: var(--text-muted); }
+.odysseus-tts-action.is-loading svg { animation: odysseus-spin 0.8s linear infinite; }
+@keyframes odysseus-spin { to { transform: rotate(360deg); } }
+
+/* ---------- Preview modal ---------- */
+
+.odysseus-preview-modal { width: 90vw; }
+.odysseus-preview-modal .modal-content { max-width: none; width: 100%; }
+
+.odysseus-preview-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.odysseus-preview-tabs button {
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.odysseus-preview-tabs button.is-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: transparent;
+}
+
+.odysseus-preview-pane {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--background-primary);
+}
+
+.odysseus-preview-md p:first-child { margin-top: 0; }
+.odysseus-preview-md p:last-child { margin-bottom: 0; }
+
+.odysseus-preview-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.odysseus-preview-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.odysseus-preview-split .odysseus-preview-pre,
+.odysseus-preview-split .odysseus-preview-md {
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.odysseus-preview-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.odysseus-preview-collabel {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Embedded Odysseus ---------- */
+.odysseus-embed-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+.odysseus-embed-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.odysseus-embed-bar button {
+  font-size: 0.78em;
+  padding: 2px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  cursor: pointer;
+}
+.odysseus-embed-status { font-size: 0.75em; color: var(--text-muted); }
+.odysseus-embed-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: var(--background-primary);
+}
+.odysseus-embed-hint {
+  padding: 16px;
+  font-size: 0.9em;
+}
+.odysseus-embed-hint button {
+  margin-top: 8px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+}
+
+/* ---------- Memory browser ---------- */
+.odysseus-memory-view { padding: 10px; }
+.odysseus-mem-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.odysseus-mem-toolbar input {
+  flex: 1;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+.odysseus-mem-count {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.odysseus-mem-card {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: var(--background-secondary);
+}
+.odysseus-mem-card.is-pinned { border-color: var(--interactive-accent); }
+.odysseus-mem-text { white-space: pre-wrap; font-size: 0.9em; }
+.odysseus-mem-meta { font-size: 0.72em; color: var(--text-muted); margin-top: 3px; }
+.odysseus-mem-actions { display: flex; gap: 4px; margin-top: 6px; }
+.odysseus-mem-actions button {
+  font-size: 0.72em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--background-modifier-border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.odysseus-mem-actions button:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+
+/* ---------- Agent tools grid ---------- */
+.odysseus-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.odysseus-tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  font-size: 0.82em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.odysseus-tool-chip input { margin: 0; }
+
+/* ---------- Preset rows in settings ---------- */
+
+.odysseus-preset-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-secondary);
+}
+
+.odysseus-preset-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.odysseus-preset-head input[type="text"] {
+  flex: 1;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-weight: 500;
+}
+
+.odysseus-preset-head button {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.odysseus-preset-head button:hover:not(:disabled) {
+  color: var(--text-error);
+  border-color: var(--background-modifier-error);
+}
+
+.odysseus-preset-head button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.odysseus-preset-row textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: inherit;
+  font-size: 0.9em;
+}

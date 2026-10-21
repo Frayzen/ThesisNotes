@@ -1,0 +1,130 @@
+{
+  "settings": {
+    "librariesConfig": {
+      "22103483": {
+        "mode": "bidirectional"
+      }
+    },
+    "syncInterval": 30,
+    "autoSync": false,
+    "useWebDav": false,
+    "useCache": true,
+    "maxCacheSizeMB": 500,
+    "librarySourceNoteTemplatePath": "",
+    "sourceNoteFolder": "",
+    "librarySourceNotePathTemplate": "Bibliography/{{libraryName}}/{{title}}",
+    "localSourceNoteTemplatePath": "",
+    "localSourceNoteFolder": "",
+    "localSidecarFolder": "",
+    "localSourceNotePathTemplate": "Bibliography/Local/@{{basename}}",
+    "autoImportAnnotationImages": true,
+    "annotationImageFolder": "Bibliography/Images",
+    "overwriteViewer": true,
+    "readerColorScheme": "obsidian-theme",
+    "defaultLightTheme": "snow",
+    "defaultDarkTheme": "obsidian",
+    "treeCollectionSort": "name-asc",
+    "treeItemSort": "title-asc",
+    "treeSingleClickOpen": false,
+    "itemDisplayTitleTemplate": "",
+    "convertNoteLinks": true,
+    "linkedAttachmentBaseDir": "",
+    "useZoteroStorage": true,
+    "zoteroStoragePath": "/home/frayzen/Zotero/storage/",
+    "defaultEditableRegionLocked": true,
+    "hideEditableRegionMarkers": false,
+    "alwaysOpenChildNoteInEditor": false,
+    "defaultCitationFormat": "footnote",
+    "citationTrigger": "@@",
+    "citationPandocTemplate": "",
+    "citationFootnoteRefTemplate": "",
+    "citationFootnoteTemplate": "",
+    "citationWikilinkTemplate": "",
+    "autoCopyAnnotation": "off",
+    "autoUpdateSourceNotesAfterSync": true,
+    "autoPurgeTrashedSourceNotes": false,
+    "autoDisableNoteImageTextTools": true,
+    "epubFontFamily": "Adwaita Sans",
+    "cslDefaultStyleId": "apa",
+    "cslDefaultFormat": "markdown",
+    "cslStylesFolder": ""
+  },
+  "customThemes": [
+    {
+      "background": "#1C1C1C",
+      "foreground": "#dadada",
+      "id": "obsidian",
+      "label": "Obsidian"
+    }
+  ],
+  "viewStates": {
+    "22103483:KY4PEIXV": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 5,
+        "scale": 170,
+        "top": 425,
+        "left": -6,
+        "scrollMode": 0,
+        "spreadMode": 0,
+        "lastReadAloudPosition": null
+      },
+      "darkTheme": "snow"
+    },
+    "22103483:AX9LT5CL": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "scale": 1,
+        "scrollYPercent": 0,
+        "appearance": {
+          "lineHeight": 1.2,
+          "wordSpacing": 0,
+          "letterSpacing": 0,
+          "pageWidth": 0,
+          "useOriginalFont": false
+        },
+        "lastReadAloudPosition": null
+      }
+    },
+    "22103483:KR9K59KR": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 33,
+        "scale": "page-width",
+        "top": 128,
+        "left": -10,
+        "scrollMode": 0,
+        "spreadMode": 0,
+        "lastReadAloudPosition": null
+      },
+      "darkTheme": "snow"
+    },
+    "22103483:CDNV9HEA": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 0,
+        "scale": "page-width",
+        "top": 792,
+        "left": -14,
+        "scrollMode": 0,
+        "spreadMode": 0,
+        "lastReadAloudPosition": null
+      }
+    },
+    "22103483:NKDTKWWN": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "scale": 1,
+        "scrollYPercent": 0,
+        "appearance": {
+          "lineHeight": 1.2,
+          "wordSpacing": 0,
+          "letterSpacing": 0,
+          "pageWidth": 0,
+          "useOriginalFont": false
+        },
+        "lastReadAloudPosition": null
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "odysseus",
+  "name": "Odysseus Companion",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Bring your self-hosted Odysseus AI workspace into Obsidian: chat & agent over your vault, voice (STT/TTS), agent profiles, memory, skills, research, and vault tools.",
+  "author": "OsyKse",
+  "isDesktopOnly": true
+}
