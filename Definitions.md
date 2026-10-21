@@ -1,3 +1,3 @@
 - **Physic space** : the input mesh space.
-- **Paremtrization space** : the space we project onto (aka **Texture space**)
-- **Paramtrization function** ($\phi$) : the function mapping the Physic space to the Paremetrization space
+- **Parameterization space** : the space we project onto (aka **Texture space**)
+- **Parameterization function** ($\phi$) : the function mapping the Physic space to the Parameterization space
