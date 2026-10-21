@@ -1,0 +1,1 @@
+- Des neerlandais on pose les jalons d'un travail autour de la boucle. En revanche, ce travail n'est pas applicable a des genus > 0.

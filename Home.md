@@ -1,8 +1,5 @@
-![[Pasted image 20261014110405.png]]
+![[MethodsSummary.png]]
 
-- On veut garantir d'avoir un polycube constamment
-- Un polycuboboid implique $x,y,z \in \mathbb{R}^3$
-- Un polycube implique $x,y,z \in \mathbb{N}^3$
-- Un coloriage 3D ne garanti PAS l'obtention d'un polycuboid
 
-Des neerlandais on pose les jalons d'un travail autour de la boucle. En revanche, ce travail n'est pas applicable a des genus > 0.
+
+

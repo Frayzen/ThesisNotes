@@ -1,0 +1,3 @@
+- **Physic space** : the input mesh space.
+- **Paremeterization space** : the space we project onto (aka **Texture space**)
+- **Paremeterization function** ($\phi$) : the function mapping the Physic space to the Paremeterization space
