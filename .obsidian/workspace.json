@@ -20,8 +20,35 @@
               "icon": "lucide-file",
               "title": "THE WHISKER WEAVING ALGORITHM A CONNECTIVITY-BASED METHOD FOR CONSTRUCTING ALL-HEXAHEDRAL FINITE ELEMENT MESHES"
             }
+          },
+          {
+            "id": "31834aa4f96b59be",
+            "type": "leaf",
+            "state": {
+              "type": "zotflow-zotero-reader-view",
+              "state": {
+                "libraryID": 22103483,
+                "itemKey": "SAJAQYH2"
+              },
+              "icon": "book-open",
+              "title": "Livesu et al. - 2019 - Loopy Cuts Surface-Field Aware Block Decomposition for Hex-Meshing.pdf"
+            }
+          },
+          {
+            "id": "a7175bff07d4f4fd",
+            "type": "leaf",
+            "state": {
+              "type": "zotflow-zotero-reader-view",
+              "state": {
+                "libraryID": 22103483,
+                "itemKey": "8NULKYYL"
+              },
+              "icon": "book-open",
+              "title": "Wu and Gao - 2014 - Automatic Swept Volume Decomposition based on Sweep Directions Extraction for Hexahedral Meshing.pdf"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,8 +112,8 @@
             "state": {
               "type": "zotflow-tree-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "zotflow-tree-view"
+              "icon": "library",
+              "title": "Zotero Library"
             }
           },
           {
@@ -99,11 +126,13 @@
               "title": "Zotero Library"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "07c3e573811baef2",
@@ -214,7 +243,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6a4b8a92f53497ac",
+  "active": "31834aa4f96b59be",
   "lastOpenFiles": [
     "Bibliography/My Library/The Whisker Weaving Algorithm A Connectivity-Based Method for Constructing All--Hexahedral Finite Element Meshes.md",
     "Bibliography/My Library/Quad Mesh Quantization Without a T‐Mesh.md",

@@ -30,7 +30,7 @@
     "convertNoteLinks": true,
     "linkedAttachmentBaseDir": "/local_home/lainef/Documents/Attachments",
     "useZoteroStorage": true,
-    "zoteroStoragePath": "/home/frayzen/Zotero/storage/",
+    "zoteroStoragePath": "/local_home/lainef/Zotero/storage/",
     "defaultEditableRegionLocked": true,
     "hideEditableRegionMarkers": false,
     "alwaysOpenChildNoteInEditor": false,
@@ -123,6 +123,42 @@
           "pageWidth": 0,
           "useOriginalFont": false
         },
+        "lastReadAloudPosition": null
+      }
+    },
+    "22103483:8NULKYYL": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 0,
+        "scale": "page-width",
+        "top": 752,
+        "left": -10,
+        "scrollMode": 0,
+        "spreadMode": 0,
+        "lastReadAloudPosition": null
+      }
+    },
+    "22103483:SAJAQYH2": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 1,
+        "scale": 150,
+        "top": 348,
+        "left": 40,
+        "scrollMode": 0,
+        "spreadMode": 0,
+        "lastReadAloudPosition": null
+      }
+    },
+    "22103483:LVE4SQLI": {
+      "secondaryViewState": null,
+      "primaryViewState": {
+        "pageIndex": 0,
+        "scale": "page-width",
+        "top": 792,
+        "left": -12,
+        "scrollMode": 0,
+        "spreadMode": 0,
         "lastReadAloudPosition": null
       }
     }

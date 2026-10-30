@@ -4,7 +4,7 @@ zotero-key: QB39UHA3
 library-id: 22103483
 item-version: 550
 item-tree: 7c8b9433
-library-version: 569
+library-version: 571
 citationKey: ""
 title: "Loopy Cuts: Surface-Field Aware Block Decomposition for Hex-Meshing"
 itemType: preprint
@@ -67,6 +67,15 @@ tags:
 > <!-- ZF_ANNO_END_UB457UYD -->
 > 
 ^UB457UYD
+
+> [!zotflow-highlight-#ffd400] [Livesu et al. - 2019 - Loopy Cuts Surface-Field Aware Block Decomposition for Hex-Meshing.pdf, p.3](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=7NH8QSLA)
+> > these methods are orientation dependent
+>
+> <!-- ZF_ANNO_BEG_7NH8QSLA -->
+> 
+> <!-- ZF_ANNO_END_7NH8QSLA -->
+> 
+^7NH8QSLA
 
 > [!zotflow-highlight-#ffd400] [Livesu et al. - 2019 - Loopy Cuts Surface-Field Aware Block Decomposition for Hex-Meshing.pdf, p.3](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=HDC8TWLU)
 > > aligns to features in any orientation already at a coarse scale
