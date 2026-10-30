@@ -86,3 +86,12 @@ tags:
 > 
 ^HDC8TWLU
 
+> [!zotflow-highlight-#ffd400] [Livesu et al. - 2019 - Loopy Cuts Surface-Field Aware Block Decomposition for Hex-Meshing.pdf, p.4](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=S4ENEUYA)
+> > t1. Each cell must have genus zero. t2. Each cell face must be bounded by at least three edges. t3. Each vertex of each cell should have valence three. g1. Each cell should be convex. g2. Each cell should be well shaped, i.e. have planar faces and  orthogonal edges. g3. Each cell should approximate its corresponding block within  a given accuracy.
+>
+> <!-- ZF_ANNO_BEG_S4ENEUYA -->
+> 
+> <!-- ZF_ANNO_END_S4ENEUYA -->
+> 
+^S4ENEUYA
+
