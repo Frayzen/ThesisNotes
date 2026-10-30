@@ -162,3 +162,12 @@ tags: []
 > 
 ^ZCZPYCED
 
+> [!zotflow-highlight-#ffd400] [Pietroni et al. - 2023 - Hex-Mesh Generation and Processing A Survey.pdf, p.17](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=35QZW525)
+> > The flip-averse mapping energy proposed in Garanzha et al. [2021] is internally used to discourage the generation of flipped elements
+>
+> <!-- ZF_ANNO_BEG_35QZW525 -->
+> 
+> <!-- ZF_ANNO_END_35QZW525 -->
+> 
+^35QZW525
+
