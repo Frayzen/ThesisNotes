@@ -3,8 +3,8 @@ zotflow-locked: true
 zotero-key: J6NB27G2
 library-id: 22103483
 item-version: 41
-item-tree: 1c08b59c
-library-version: 120
+item-tree: "63784708"
+library-version: 569
 citationKey: protaisMaillageDominantePolycube2022
 title: Maillage à dominante Polycube
 itemType: thesis

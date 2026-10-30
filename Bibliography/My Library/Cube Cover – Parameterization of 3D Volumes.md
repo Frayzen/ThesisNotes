@@ -3,8 +3,8 @@ zotflow-locked: true
 zotero-key: LXB8RX44
 library-id: 22103483
 item-version: 94
-item-tree: 5ee65bb3
-library-version: 120
+item-tree: 8118dec3
+library-version: 569
 citationKey: nieserUbeParameterization3D2011
 title: Cube Cover – Parameterization of 3D Volumes
 itemType: journalArticle

@@ -28,7 +28,7 @@
     "treeSingleClickOpen": false,
     "itemDisplayTitleTemplate": "",
     "convertNoteLinks": true,
-    "linkedAttachmentBaseDir": "",
+    "linkedAttachmentBaseDir": "/local_home/lainef/Documents/Attachments",
     "useZoteroStorage": true,
     "zoteroStoragePath": "/home/frayzen/Zotero/storage/",
     "defaultEditableRegionLocked": true,
