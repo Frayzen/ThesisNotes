@@ -4,7 +4,7 @@ zotero-key: I8UDTY2V
 library-id: 22103483
 item-version: 134
 item-tree: e1c4cfdf
-library-version: 569
+library-version: 579
 citationKey: snoepRobustConstructionPolycube2025
 title: Robust Construction of Polycube Segmentations via Dual Loops
 itemType: journalArticle
@@ -100,6 +100,24 @@ tags: []
 > <!-- ZF_ANNO_END_HD7LQLDR -->
 > 
 ^HD7LQLDR
+
+> [!zotflow-highlight-#ff6666] [Computer Graphics Forum - 2025 - Snoep - Robust Construction of Polycube Segmentations via Dual Loops-1.pdf, p.3](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=IUIHDV3L)
+> > loop segments
+>
+> <!-- ZF_ANNO_BEG_IUIHDV3L -->
+> 
+> <!-- ZF_ANNO_END_IUIHDV3L -->
+> 
+^IUIHDV3L
+
+> [!zotflow-highlight-#ff6666] [Computer Graphics Forum - 2025 - Snoep - Robust Construction of Polycube Segmentations via Dual Loops-1.pdf, p.3](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=MRHQDKWX)
+> > loop regions
+>
+> <!-- ZF_ANNO_BEG_MRHQDKWX -->
+> 
+> <!-- ZF_ANNO_END_MRHQDKWX -->
+> 
+^MRHQDKWX
 
 > [!zotflow-highlight-#ffd400] [Computer Graphics Forum - 2025 - Snoep - Robust Construction of Polycube Segmentations via Dual Loops-1.pdf, p.3](obsidian://zotflow?type=open-annotation&libraryID=22103483&key=XD79CSRM)
 > > We can use the full set of X-loops of an oriented loop structure to partition the underlying space (surface or polycube) into regions. We refer to these regions as X-zones. We can use these zones to capture the global structure of the polycube (with regard to the Xaxis) in a directed graph. Specifically, the X-graph has a vertex for each X-zone, and a directed edge (u, v) for every X-loop with u and v corresponding to the X-zones on the negative and positive side of the loop, respectively. We can define zones and graph for Y and Z similarly. The X-, Y -, and Z-graph are also called the level graphs.
