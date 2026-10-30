@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-10-30.md",
+                "file": "Hex-Mesh Generation and Processing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-30"
+              "title": "Hex-Mesh Generation and Processing"
             }
           },
           {
@@ -61,8 +61,26 @@
               "title": "Wu and Gao - 2014 - Automatic Swept Volume Decomposition based on Sweep Directions Extraction for Hexahedral Meshing.pdf"
             }
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "069367dadfcc1165",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e952cb9dc56f24f1",
+            "type": "leaf",
+            "state": {
+              "type": "zotflow-zotero-reader-view",
+              "state": {
+                "libraryID": 22103483,
+                "itemKey": "ZDT3I9A4"
+              },
+              "icon": "book-open",
+              "title": "Pietroni et al. - 2023 - Hex-Mesh Generation and Processing A Survey.pdf"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -144,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "07c3e573811baef2",
@@ -255,10 +274,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e314662f7cfc737d",
+  "active": "6a4b8a92f53497ac",
   "lastOpenFiles": [
     "2026-10-30.md",
     "Hex-Mesh Generation and Processing.md",
+    "Bibliography/My Library/LayTracks3D A New Approach to Meshing General Solids using Medial Axis Transform.md",
+    "Bibliography/My Library/Hex-Mesh Generation and Processing A Survey.md",
     "Bibliography/My Library/THE WHISKER WEAVING ALGORITHM A CONNECTIVITY-BASED METHOD FOR CONSTRUCTING ALL-HEXAHEDRAL FINITE ELEMENT MESHES.md",
     "Bibliography/My Library/The Whisker Weaving Algorithm A Connectivity-Based Method for Constructing All--Hexahedral Finite Element Meshes.md",
     "Bibliography/My Library/Quad Mesh Quantization Without a T‐Mesh.md",
@@ -283,10 +304,8 @@
     "Meeting Notes",
     "attachments/MethodsSummary.png",
     "Bibliography/My Library/Cube Cover – Parameterization of 3D Volumes.md",
-    "CubeCover/Shape functions of tetrahedron.md",
     "Untitled Diagram.svg",
     "Excalidraw",
-    "Bibliography/My Library/Hexahedral Mesh Generation using the Embedded Voronoi Graph.md",
     "Bibliography/My Library",
     "Bibliography",
     "CubeCover/Pasted image 20261013105404.png",
